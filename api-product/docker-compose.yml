@@ -8,3 +8,19 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=dev
+      - RABBITMQ_DEFAULT_PASS=dev
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - rabbitmq_go_net
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
