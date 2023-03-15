@@ -205,10 +205,10 @@
   dependencies:
     "@types/express" "*"
 
-"@types/node@*", "@types/node@>=10.0.0":
-  "integrity" "sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-18.0.6.tgz"
-  "version" "18.0.6"
+"@types/node@*", "@types/node@^18.15.0", "@types/node@>=10.0.0":
+  "integrity" "sha512-z6nr0TTEOBGkzLGmbypWOGnpSpSIBorEhC4L+4HeQ2iezKCi4f77kyslRwvHeNitymGQ+oFyIWGP96l/DPSV9w=="
+  "resolved" "https://registry.npmjs.org/@types/node/-/node-18.15.0.tgz"
+  "version" "18.15.0"
 
 "@types/qs@*":
   "integrity" "sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw=="
