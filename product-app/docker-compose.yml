@@ -34,9 +34,10 @@ services:
       - /usr/src/app/node_modules
 
   rabbitmq:
-    image: rabbitmq
+    image: rabbitmq:3-management
     ports:
       - '5672:5672'
+      - '15672:15672'
 
   mongodb-primary:
     image: docker.io/bitnami/mongodb:5.0
