@@ -3,8 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as Joi from 'joi';
 import { DatabaseModule, RmqModule } from 'y/common';
-import { REVIEW_SERVICE } from './constants/services';
 
+import { REVIEW_SERVICE } from './constants/services';
 import { ProductsController } from './products.controller';
 import { ProductsRepository } from './products.repository';
 import { ProductsService } from './products.service';

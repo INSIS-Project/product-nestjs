@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { RmqService } from 'y/common/rmq/rmq.service';
+import { RmqService } from 'y/common';
 
 import { ReviewModule } from './review.module';
 
