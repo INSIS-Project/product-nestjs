@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { REVIEW_SERVICE } from './constants/services';
+import { lastValueFrom } from 'rxjs';
 
+import { REVIEW_SERVICE } from './constants/services';
 import { CreateProductRequest } from './dtos/create-product.request';
 import { ProductsRepository } from './products.repository';
 
@@ -13,7 +14,22 @@ export class ProductsService {
   ) {}
 
   async createProduct(request: CreateProductRequest) {
-    return this.productsRepository.create(request);
+    const session = await this.productsRepository.startTransaction();
+    try {
+      const product = await this.productsRepository.create(request, {
+        session,
+      });
+      await lastValueFrom(
+        this.reviewClient.emit('product_created', {
+          request,
+        }),
+      );
+      await session.commitTransaction();
+      return product;
+    } catch (err) {
+      await session.abortTransaction();
+      throw err;
+    }
   }
 
   async getProducts() {
